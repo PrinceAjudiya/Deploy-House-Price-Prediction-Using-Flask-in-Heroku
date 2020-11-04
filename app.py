@@ -6,8 +6,8 @@ import pickle
 #web: gunicorn app:app
 #first file that we have to run first : flask server name
 app = Flask(__name__)
-pkl_file = open('E:\Banglore House Price Prediction Using Flask\model.pkl','rb')
-model = pickle.load(open('E:\Banglore House Price Prediction Using Flask\model.pkl', 'rb'))
+pkl_file = open('model.pkl','rb')
+model = pickle.load(open('model.pkl', 'rb'))
 index_dict = pickle.load(pkl_file)
 
 
@@ -22,8 +22,8 @@ def predict():
     if request.method=='POST':
         result = request.form
 
-        index_dict = pickle.load(open('E:\Banglore House Price Prediction Using Flask\cat','rb'))
-        location_cat = pickle.load(open('E:\Banglore House Price Prediction Using Flask\location_cat','rb'))
+        index_dict = pickle.load(open('cat','rb'))
+        location_cat = pickle.load(open('location_cat','rb'))
 
         new_vector = np.zeros(151)
 
